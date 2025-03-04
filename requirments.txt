@@ -1,0 +1,14 @@
+Flask==2.2.3               # Flask web framework
+Flask-SQLAlchemy==2.5.1     # SQLAlchemy integration for Flask
+pyodbc==4.0.32              # ODBC connection to SQL Server
+scikit-learn==1.0.2         # Machine learning library for prediction
+pandas==1.3.5               # Data manipulation library (if used with AI model)
+numpy==1.21.4               # Numerical operations (needed for ML)
+matplotlib==3.4.3           # For data visualization if needed
+flask-wtf==1.0.1            # For form handling in Flask (includes CSRF protection)
+WTForms==2.3.3              # Web forms for handling input data (in case of complex forms)
+flask-login==0.6.2          # For handling user sessions and authentication
+flask-bcrypt==0.7.1         # Password hashing library
+Flask-Uploads==0.2.1        # For handling file uploads (e.g., medical images)
+reportlab==3.5.67           # PDF generation library
+python-dotenv==0.19.2       # For loading environment variables from .env file

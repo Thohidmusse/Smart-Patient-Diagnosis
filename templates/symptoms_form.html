@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Symptoms Entry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2e7d32;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #2e7d32;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+
+        #page2 {
+            display: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Symptoms Entry</h1>
+        <form id="symptomsForm" method="POST">
+            <div id="page1">
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="input-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="age">Age:</label>
+                            <input type="number" name="age" id="age" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="Gender">Gender:</label>
+                            <select name="Gender" id="Gender" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+   
+                        </div>
+                        <div class="input-group">
+                            <label for="PreExistingConditions">Pre-existing Conditions:</label>
+                            <textarea name="PreExistingConditions" id="PreExistingConditions" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="column">
+                        
+                        <div class="input-group">
+                            <label for="other_symptoms">Other Symptoms:</label>
+                            <textarea name="OtherSymptoms" id="OtherSymptoms" rows="4"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="allergies">allergies</label>
+                            <textarea name="Allergies" id="Allergies" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="current_medications">Current Medications:</label>
+                            <textarea name="CurrentMedications" id="CurrentMedications" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button type="button" id="nextButton">Next</button>
+                </div>
+            </div>
+
+            <div id="page2">
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="input-group">
+                            <label for="diet">Diet:</label>
+                            <textarea name="Diet" id="Diet" rows="4"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="severity_of_symptoms">Severity of Symptoms (1-10):</label>
+                            <input type="number" name="SeverityOfSymptoms" id="SeverityOfSymptoms" min="1" max="10" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="pain_level">Pain Level (1-10):</label>
+                            <input type="number" name="PainLevel" id="PainLevel" min="1" max="10" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="exercise">Exercise Habits:</label>
+                            <textarea name="Exercise" id="Exercise" rows="4"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="smoking_alcohol">Smoking/Alcohol:</label>
+                            <textarea name="SmokingAlcohol" id="SmokingAlcohol" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="input-group">
+                            <label for="recent_surgeries">Recent Surgeries:</label>
+                            <textarea name="RecentSurgeries" id="RecentSurgeries" rows="4"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="emergency_contact">Emergency Contact:</label>
+                            <input type="text" name="EmergencyContact" id="EmergencyContact" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="travel_history">Travel History:</label>
+                            <textarea name="TravelHistory" id="TravelHistory" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consent Checkboxes -->
+                <div class="checkbox-group">
+                    <input type="checkbox" name="consent_for_treatment" id="consent_for_treatment" required>
+                    <label for="consent_for_treatment">I consent to receive medical treatment.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="privacy_agreement" id="privacy_agreement" required>
+                    <label for="privacy_agreement">I agree to the privacy policy and data handling terms.</label>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="backButton">Back</button>
+                    <button type="submit">Submit Symptoms</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const nextButton = document.getElementById('nextButton');
+        const backButton = document.getElementById('backButton');
+
+        nextButton.addEventListener('click', () => {
+            page1.style.display = 'none';
+            page2.style.display = 'block';
+        });
+
+        backButton.addEventListener('click', () => {
+            page2.style.display = 'none';
+            page1.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Diagnosis Result</h2>
+        
+        {% if diagnosis and assigned_doctor %}
+            <p><strong>Predicted Disease:</strong> {{ diagnosis }}</p>
+            <p><strong>Assigned Doctor:</strong> Dr. {{ assigned_doctor }}</p>
+            <p><strong>Specialization:</strong> {{ specialization }}</p>
+            <br>
+            <a href="{{ url_for('download_pdf') }}" class="btn">Download Report (PDF)</a>
+        {% else %}
+            <p>No diagnosis available. Please fill in the symptoms form first.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
